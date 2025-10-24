@@ -33,9 +33,30 @@ public class Dealership {
     public List<Vehicle> getVehicleByPrice(double min, double max) {
         List<Vehicle> result = new ArrayList<>();
         for (Vehicle v : inventory) {
-            if (v1.getMake().equalsIgnoreCase(v1.make) && v1.getModel().equalsIgnoreCase(v1.getModel())) {
+            if (v.getPrice() >= min && v.getPrice() <= max) {
                 result.add(v);
             }
+        }
+        return result;
+    }
+
+    public List<Vehicle> getVehicleByMakeModel(String make, String model){
+        List<Vehicle> result = new ArrayList<>();
+        for (Vehicle v : inventory){
+            if (v.getMake().equalsIgnoreCase(make) && v.getModel().equalsIgnoreCase(model)){
+                result.add(v);
+            }
+        }
+        return result;
+    }
+
+    public List<Vehicle> getVehicleByYear(int min, int max){
+        List<Vehicle> result = new ArrayList<>();
+        for (Vehicle v : inventory){
+            if (v.getYear() >= min && v.getYear() <= max){
+                result.add(v);
+            }
+
         }
         return result;
     }
