@@ -4,6 +4,7 @@ public class Vehicle {
     int vin;
     int year;
     String make;
+    String color;
     String model;
     String vehicleType;
     int odometer;
@@ -66,11 +67,20 @@ public class Vehicle {
         this.vin = vin;
     }
 
-    Vehicle(int vin, int year, String make, String model,
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    Vehicle(int vin, int year, String make,String color, String model,
             String vehicleType, int odometer, double price){
         this.vin = vin;
         this.year = year;
         this.make = make;
+        this.color = color;
         this.model = model;
         this.vehicleType = vehicleType;
         this.odometer = odometer;

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Dealership {
-    Vehicle v1 = new Vehicle(112323, 2019, "Camry", "Toyota", "Sedan", 123213, 123214.00);
+    Vehicle v1 = new Vehicle(112323, 2019, "Camry", "Blue", "Toyota", "Sedan", 123213, 123214.00);
 
     private String name;
     private String address;
@@ -59,6 +59,40 @@ public class Dealership {
 
         }
         return result;
+    }
+    public List<Vehicle> getVehicleByColor(String color){
+        List<Vehicle> result = new ArrayList<>();
+        for ( Vehicle v : inventory){
+            if (v.getColor().equalsIgnoreCase(color)){
+                result.add(v);
+            }
+        }
+        return result;
+    }
+    public List<Vehicle> getVehicleByMileage(double min, double max){
+        List<Vehicle> result = new ArrayList<>();
+        for ( Vehicle v : inventory){
+            if (v.getOdometer() >= min && v.getOdometer() <= max){
+                result.add(v);
+            }
+        }
+        return result;
+    }
+    public List<Vehicle> getVehicleByType(String type){
+        List<Vehicle> result = new ArrayList<>();
+        for (Vehicle v : inventory){
+            if (v.getVehicleType().equalsIgnoreCase(type)){
+                result.add(v);
+            }
+        }
+        return result;
+    }
+    public void removeVehicle(int vin){
+        inventory.removeIf(v -> v.getVin() == vin);
+    }
+    public void addVehicle(Vehicle vehicle){
+        inventory.add(vehicle);
+        
     }
 }
 
