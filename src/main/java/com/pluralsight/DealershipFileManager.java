@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DealershipFileManager {
-    private List<Vehicle> inventory = new ArrayList<>();
+
     public Dealership loadDealership (String csvFile){
         Dealership dealership = new Dealership("Johns cars", "1123 Sugar strt","712-121-2332");
         try(BufferedReader reader = new BufferedReader(new FileReader("inventory.csv"))) {
@@ -23,6 +23,7 @@ public class DealershipFileManager {
 
                     Vehicle v = new Vehicle(vin, year, make, model,color, vehicleType, odometer, price);
                     dealership.addVehicle(v);
+                    System.out.print(v);
 
 
 
@@ -30,7 +31,7 @@ public class DealershipFileManager {
                 }
             }
 
-            System.out.println(dealership.getAllVehicles());
+
         } catch (IOException e){
             System.out.println("Error reading file");
         }

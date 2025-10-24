@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Dealership {
-    Vehicle v1 = new Vehicle(112323, 2019, "Camry", "Blue", "Toyota", "Sedan", 123213, 123214.00);
 
     private String name;
     private String address;
