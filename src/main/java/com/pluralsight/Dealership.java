@@ -22,8 +22,8 @@ public class Dealership {
         inventory.add(vehicle);
     }
 
-    public void removeVehicle(Vehicle vehicle) {
-        inventory.remove(vehicle);
+    public void removeVehicle(int vin){
+        inventory.removeIf(v -> v.getVin() == vin);
     }
 
     public List<Vehicle> getAllVehicles() {
@@ -87,13 +87,8 @@ public class Dealership {
         }
         return result;
     }
-    public void removeVehicle(int vin){
-        inventory.removeIf(v -> v.getVin() == vin);
-    }
-    public void addVehicle(Vehicle vehicle){
-        inventory.add(vehicle);
-        
-    }
+
+
 }
 
 

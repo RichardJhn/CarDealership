@@ -94,6 +94,7 @@ public class Vehicle {
                 "vin = " + vin +
                 ", year = " + year +
                 ", make =' " + make + '\'' +
+                ", Color = " + color +
                 ", model =' " + model + '\'' +
                 ", vehicleType =' " + vehicleType + '\'' +
                 ", odometer = " + odometer +
