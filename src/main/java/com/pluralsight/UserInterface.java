@@ -1,4 +1,5 @@
 package com.pluralsight;
+import java.util.List;
 import java.util.Scanner;
 import java.io.*;
 public class UserInterface{
@@ -41,24 +42,35 @@ public class UserInterface{
 
                 switch(choice.toString()){
                     case "1":
-                        System.out.println("what is your budget?");
-
+                        System.out.println("what is your minimum budget?");
+                        double min = scanner.nextDouble();
+                        System.out.println("What is your Maximum budget?");
+                        double max = scanner.nextDouble();
+                        System.out.println("Here are the vehicles in your budget:");
+                        for(Vehicle vehicle : dealership.getVehicleByPrice(min, max))
+                            System.out.println(vehicle);
                         break;
-                        case "2":
-                         case "3":
-
-                         case "4":
-                         case "5":
-                         case "6":
-                         case "7":
-                             for (Vehicle vehicle: dealership.getAllVehicles())
-                                 System.out.println(vehicle);
-                         case "8":
-                         case "9":
-                         case "99":
-                            return;
-                         default:
-                                System.out.println("Invalid entry! Please try again!");
+                    case "2":
+                        System.out.println("What make are you looking for?");
+                        String make = scanner.nextLine().trim();
+                        System.out.println("What model are you looking for?");
+                        String model = scanner.nextLine().trim();
+                        System.out.println("Here are your results:");
+                        for (Vehicle vehicle : dealership.getVehicleByMakeModel(make,model))
+                            System.out.println(vehicle);
+                    case "3":
+                    case "4":
+                    case "5":
+                    case "6":
+                    case "7":
+                        for (Vehicle vehicle: dealership.getAllVehicles())
+                            System.out.println(vehicle);
+                    case "8":
+                    case "9":
+                    case "99":
+                        return;
+                    default:
+                        System.out.println("Invalid entry! Please try again!");
                 }
             }catch(Exception e){
 
