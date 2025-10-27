@@ -1,12 +1,12 @@
 package com.pluralsight;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class DealershipFileManager {
 
     public Dealership loadDealership (String csvFile){
         Dealership dealership = new Dealership("Johns cars", "1123 Sugar strt","712-121-2332");
+        //code to read the inventory.csv file
+        //to do : figure out how to sow dealership information
         try(BufferedReader reader = new BufferedReader(new FileReader("inventory.csv"))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -21,12 +21,10 @@ public class DealershipFileManager {
                     int odometer = Integer.parseInt(data[6]);
                     double price = Double.parseDouble(data[7]);
 
+                    //command to print out all vehicles
+
                     Vehicle v = new Vehicle(vin, year, make, model,color, vehicleType, odometer, price);
                     dealership.addVehicle(v);
-                    System.out.print(v);
-
-
-
 
                 }
             }

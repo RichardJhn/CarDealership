@@ -1,5 +1,4 @@
 package com.pluralsight;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +22,7 @@ public class Dealership {
 
     public void removeVehicle(int vin){
         inventory.removeIf(v -> v.getVin() == vin);
+
     }
 
     public List<Vehicle> getAllVehicles() {

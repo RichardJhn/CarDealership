@@ -9,7 +9,7 @@ public class Vehicle {
     String vehicleType;
     int odometer;
     double price;
-
+//purely for getters and setters
 
     public double getPrice() {
         return price;
