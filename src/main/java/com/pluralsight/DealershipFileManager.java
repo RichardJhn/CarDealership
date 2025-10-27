@@ -12,6 +12,7 @@ public class DealershipFileManager {
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split("\\|");
                 if (data.length == 8) {
+
                     int vin = Integer.parseInt(data[0]);
                     int year = Integer.parseInt(data[1]);
                     String make = data[2];
@@ -23,7 +24,7 @@ public class DealershipFileManager {
 
                     //command to print out all vehicles
 
-                    Vehicle v = new Vehicle(vin, year, make, model,color, vehicleType, odometer, price);
+                    Vehicle v = new Vehicle(vin, year, make,color, model, vehicleType, odometer, price);
                     dealership.addVehicle(v);
 
                 }

@@ -58,6 +58,7 @@ public class UserInterface{
                         System.out.println("Here are your results:");
                         for (Vehicle vehicle : dealership.getVehicleByMakeModel(make,model))
                             System.out.println(vehicle);
+                        break;
                     case "3":
                     case "4":
                     case "5":
