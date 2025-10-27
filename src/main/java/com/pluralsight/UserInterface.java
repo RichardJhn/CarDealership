@@ -43,11 +43,11 @@ public class UserInterface{
                 switch(choice.toString()){
                     case "1":
                         System.out.println("what is your minimum budget?");
-                        double min = scanner.nextDouble();
+                        double minBudget = scanner.nextDouble();
                         System.out.println("What is your Maximum budget?");
-                        double max = scanner.nextDouble();
+                        double maxBudget = scanner.nextDouble();
                         System.out.println("Here are the vehicles in your budget:");
-                        for(Vehicle vehicle : dealership.getVehicleByPrice(min, max))
+                        for(Vehicle vehicle : dealership.getVehicleByPrice(minBudget, maxBudget))
                             System.out.println(vehicle);
                         break;
                     case "2":
@@ -60,6 +60,13 @@ public class UserInterface{
                             System.out.println(vehicle);
                         break;
                     case "3":
+                        System.out.println("What is the earliest model are you looking for?");
+                        int minYear = scanner.nextInt();
+                        System.out.println("What is your oldest model you're looking for?");
+                        int maxYear = scanner.nextInt();
+                        System.out.println("Here are the vehicles you are looking for: ");
+                        for(Vehicle vehicle : dealership.getVehicleByYear(minYear, maxYear))
+                            System.out.println(vehicle);
                     case "4":
                     case "5":
                     case "6":
