@@ -2,10 +2,13 @@ package com.pluralsight;
 import java.util.Scanner;
 import java.io.*;
 public class UserInterface{
-    private void displayScreen() {
+
+    public void displayScreen() {
         Scanner scanner = new Scanner(System.in);
         DealershipFileManager dealershipFileManager = new DealershipFileManager();
-        Dealership dealership = new Dealership("John's Car Dealership","3213 Mcdonalds Rd","783-123-4124");
+        Dealership dealership = dealershipFileManager.loadDealership("inventory.csv");
+
+
         String choice = "";
 
 
@@ -36,45 +39,37 @@ public class UserInterface{
             try (BufferedReader reader = new BufferedReader(new FileReader("inventory.csv"))){
                 String line;
 
-                while((line = reader.readLine()) !=null){
-                    String[] data = line.split(("\\|"));
-                    if (data.length == 8){
-                        int vin = Integer.parseInt(data[0]);
-                        int year = Integer.parseInt(data[1]);
-                        String make = data[2];
-                        String color = data[3];
-                        String model = data[4];
-                        String vehicleType = data[5];
-                        int odometer = Integer.parseInt(data[6]);
-                        double price = Double.parseDouble(data[7]);
+                switch(choice.toString()){
+                    case "1":
+                        System.out.println("what is your budget?");
 
-                        switch(choice.toString()){
-                            case "1":
-                                System.out.println("what is your budget?");
-                                dealership.getVehicleByPrice(0.00, 100000.00);
-                                break;
-                            case "2":
+                        break;
+                        case "2":
+                         case "3":
 
-                            case "3":
-                            case "4":
-                            case "5":
-                            case "6":
-                            case "7":
-                            case "8":
-                            case "9":
-                            case "99":
-                        }
-                    }
+                         case "4":
+                         case "5":
+                         case "6":
+                         case "7":
+                             for (Vehicle vehicle: dealership.getAllVehicles())
+                                 System.out.println(vehicle);
+                         case "8":
+                         case "9":
+                         case "99":
+                            return;
+                         default:
+                                System.out.println("Invalid entry! Please try again!");
                 }
-            } catch (IOException e) {
-                System.out.println("Error - File not found");
+            }catch(Exception e){
 
             }
-
-
         }
-        displayScreen();
+
     }
+
+
+
+
 
 
     //Have the Menu here
