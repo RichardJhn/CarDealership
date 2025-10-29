@@ -33,10 +33,6 @@ public class UserInterface{
             //here we code the options
 
 
-            if (choice.equalsIgnoreCase("99")){
-                System.out.println("quiting");
-                break;
-            }
             try (BufferedReader reader = new BufferedReader(new FileReader("inventory.csv"))){
                 String line;
 
@@ -67,15 +63,38 @@ public class UserInterface{
                         System.out.println("Here are the vehicles you are looking for: ");
                         for(Vehicle vehicle : dealership.getVehicleByYear(minYear, maxYear))
                             System.out.println(vehicle);
+                        break;
                     case "4":
+                        System.out.println("What color would you like your vehicle to be?");
+                        String userColor = scanner.nextLine();
+                        System.out.println(dealership.getVehicleByColor(userColor));
+                        break;
                     case "5":
+                        System.out.println("Whats your minimum mileage?");
+                        int minMileage = scanner.nextInt();
+                        System.out.println("Whats your max mileage?");
+                        int maxMileage = scanner.nextInt();
+                        for (Vehicle vehicle : dealership.getVehicleByMileage(minMileage, maxMileage))
+                            System.out.println(vehicle);
+                        break;
                     case "6":
+                        System.out.println("What type of vehicle would you like?");
+                        String userType = scanner.nextLine();
+                        for (Vehicle vehicle : dealership.getVehicleByType(userType))
+                            System.out.println(vehicle);
+                        break;
                     case "7":
                         for (Vehicle vehicle: dealership.getAllVehicles())
                             System.out.println(vehicle);
+                        break;
                     case "8":
+
+                        break;
                     case "9":
+
+                        break;
                     case "99":
+                        System.out.println("quitting");
                         return;
                     default:
                         System.out.println("Invalid entry! Please try again!");
@@ -86,8 +105,6 @@ public class UserInterface{
         }
 
     }
-
-
 
 
 
