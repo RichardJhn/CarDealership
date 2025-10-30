@@ -1,6 +1,5 @@
 package com.pluralsight;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 import java.io.*;
 public class UserInterface{
@@ -93,11 +92,10 @@ public class UserInterface{
                             System.out.println(vehicle);
                         break;
                     case "8":
-
+                        addNewVehicle();
                         break;
                     case "9":
                         proccessRemoveVehicle();
-
                         break;
                     case "99":
                         System.out.println("quitting");
@@ -148,6 +146,46 @@ public class UserInterface{
             System.out.println("Vehicle with vin: " + vin + " not found.");
         }
     }
+    public void addNewVehicle() {
+        try{
+            Scanner scanner = new Scanner(System.in);
+            FileWriter myWriter = new FileWriter("inventory.csv", true);
+            System.out.println("What is the vin number? (5 numbers)");
+            int vin = scanner.nextInt();
+            scanner.nextLine();
+            System.out.println("What is the year?");
+            int year = scanner.nextInt();
+            scanner.nextLine();
+            System.out.println("What is the make?");
+            String make = scanner.nextLine();
+            System.out.println("What is the color?");
+            String color = scanner.nextLine();
+            System.out.println("what is the model?");
+            String model = scanner.nextLine();
+            System.out.println("What is the vehicle type?");
+            String vehicleType = scanner.nextLine();
+            System.out.println("What is the mileage?");
+            int mileage = scanner.nextInt();
+            scanner.nextLine();
+            System.out.println("How much are you selling it for?");
+            double price = scanner.nextDouble();
+            scanner.nextLine();
+
+            Vehicle newVehicle = new Vehicle(vin, year, make, color, model,vehicleType,mileage,price);
+            dealership.addVehicle(newVehicle);
+            myWriter.write(String.format("" +
+                            "\n%s|%s|%s|%s|%s|%s|%s|%.2f",
+                    vin, year, make, color,model,vehicleType, mileage, price));
+            myWriter.close();
+            System.out.println("Vehicle added successfully!");
+
+        } catch (IOException e) {
+            System.out.println("Error while adding vehicle");
+
+        }
+    }
+
+
 
 
     //Have the Menu here

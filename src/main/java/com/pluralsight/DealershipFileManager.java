@@ -52,6 +52,7 @@ public class DealershipFileManager {
                         v.getOdometer() + "|" +
                         v.getPrice() + "|");
                 bufferedWriter.newLine();
+
             }
             bufferedWriter.close();
 

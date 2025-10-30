@@ -18,37 +18,11 @@ public class Dealership {
         this.phone = phone;
         this.inventory = new ArrayList<>();
     }
+    public void addVehicle(Vehicle vehicle){
+        inventory.add(vehicle);
 
-    public static void addVehicle(Vehicle vehicle) {
-        try{
-            Scanner scanner = new Scanner(System.in);
-            FileWriter myWriter = new FileWriter("inventory.csv", true);
-            System.out.println("What is the vin number? (5 numbers)");
-            int vin = scanner.nextInt();
-            System.out.println("What is the year?");
-            int year = scanner.nextInt();
-            System.out.println("What is the make?");
-            String make = scanner.nextLine();
-            System.out.println("What is the color?");
-            String color = scanner.nextLine();
-            System.out.println("what is the model?");
-            String model = scanner.nextLine();
-            System.out.println("What is the vehicle type?");
-            String vehicleType = scanner.nextLine();
-            System.out.println("What is the mileage?");
-            int mileage = scanner.nextInt();
-            System.out.println("How much are you selling it for?");
-            double price = scanner.nextDouble();
-            scanner.nextLine();
-
-            myWriter.write(String.format("\n%s|%s|%s|%s|%s|%s|%s|%.2f",vin, year, make, color,model,vehicleType, mileage, price));
-            myWriter.close();
-
-
-        } catch (IOException e) {
-
-        }
     }
+
 
 
 
