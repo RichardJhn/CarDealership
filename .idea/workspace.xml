@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c1ed9a55-b311-4f03-9b12-d37a9ed02141" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/inventoryCopy.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inventory.csv" beforeDir="false" afterPath="$PROJECT_DIR$/inventory.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/Dealership.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/Dealership.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/DealershipFileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/DealershipFileManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pluralsight/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pluralsight/UserInterface.java" afterDir="false" />
@@ -52,6 +54,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Student/pluralsight/capstones/AccountingLedgerApplication",
     "onboarding.tips.debug.path": "C:/Users/Student/pluralsight/workshops/CarDealership/src/main/java/com/pluralsight/Main.java",
     "project.structure.last.edited": "Problems",
     "project.structure.proportion": "0.0",
@@ -60,8 +63,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Student\pluralsight\workshops\CarDealership\src\main\resources" />
       <recent name="C:\Users\Student\pluralsight\workshops\CarDealership" />
+      <recent name="C:\Users\Student\pluralsight\workshops\CarDealership\src\main\resources" />
     </key>
   </component>
   <component name="RunManager">

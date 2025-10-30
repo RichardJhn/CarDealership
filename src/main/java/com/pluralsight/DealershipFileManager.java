@@ -3,6 +3,7 @@ import java.io.*;
 
 public class DealershipFileManager {
 
+
     public Dealership loadDealership (String csvFile){
         Dealership dealership = new Dealership("Johns cars", "1123 Sugar strt","712-121-2332");
         //code to read the inventory.csv file
@@ -51,8 +52,8 @@ public class DealershipFileManager {
                         v.getOdometer() + "|" +
                         v.getPrice() + "|");
                 bufferedWriter.newLine();
-                bufferedWriter.close();
             }
+            bufferedWriter.close();
 
         }catch (Exception e){
 

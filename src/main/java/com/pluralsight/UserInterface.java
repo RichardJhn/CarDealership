@@ -1,15 +1,21 @@
 package com.pluralsight;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.io.*;
 public class UserInterface{
 
+    private DealershipFileManager dealershipFileManager = new DealershipFileManager();
+    private Dealership dealership = dealershipFileManager.loadDealership("inventory.csv");
+    private ArrayList<Vehicle> inventory = new ArrayList<>();
+
+
     public void displayScreen() {
         Scanner scanner = new Scanner(System.in);
-        DealershipFileManager dealershipFileManager = new DealershipFileManager();
-        Dealership dealership = dealershipFileManager.loadDealership("inventory.csv");
+      //  DealershipFileManager dealershipFileManager = new DealershipFileManager();
+      //  Dealership dealership = dealershipFileManager.loadDealership("inventory.csv");
 
-
+        init();
         String choice = "";
 
 
@@ -90,10 +96,7 @@ public class UserInterface{
 
                         break;
                     case "9":
-                        System.out.println("what is the vin number of the vehicle you would like to remove?(5 numbers)");
-                        int removeVin = scanner.nextInt();
-                        dealership.removeVehicle(removeVin);
-                        System.out.println("Vehicle has been removed ");
+                        proccessRemoveVehicle();
 
                         break;
                     case "99":
@@ -108,8 +111,43 @@ public class UserInterface{
         }
 
     }
+    // Initialize dealership from file
+    private void init() {
+        // creates and loads an object that can read/write the inventory file.
+        DealershipFileManager fileManager = new DealershipFileManager();
+        dealership = fileManager.loadDealership("inventory.csv");
+    }
+
+    private void proccessRemoveVehicle() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("what is the vin number of the vehicle you would like to remove?(5 numbers)");
+        Vehicle toRemove = null; // empty until found a matching VIN to remove
+        int vin = Integer.parseInt(scanner.nextLine());
+        ArrayList<Vehicle> inventory = new ArrayList<>();
 
 
+        for (Vehicle v : dealership.getAllVehicles()) {
+            if (v.getVin() == vin) {
+                //    inventory.remove(v);
+                toRemove = v;
+                break;
+            }
+        }
+
+        if (toRemove != null) {
+            // remove the vehicle
+            dealership.getAllVehicles().remove(toRemove);
+
+            // save the updated dealership to CSV.
+            DealershipFileManager.saveDealership(dealership);
+            System.out.println("Vehicle has been removed ");
+
+        }
+        else {
+            System.out.println("Vehicle with vin: " + vin + " not found.");
+        }
+    }
 
 
     //Have the Menu here
