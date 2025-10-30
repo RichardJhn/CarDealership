@@ -5,7 +5,7 @@ import java.io.*;
 public class UserInterface{
 
     private DealershipFileManager dealershipFileManager = new DealershipFileManager();
-    private Dealership dealership = dealershipFileManager.loadDealership("inventory.csv");
+    private Dealership dealership = dealershipFileManager.getDealership();
     private ArrayList<Vehicle> inventory = new ArrayList<>();
 
 
@@ -113,7 +113,12 @@ public class UserInterface{
     private void init() {
         // creates and loads an object that can read/write the inventory file.
         DealershipFileManager fileManager = new DealershipFileManager();
-        dealership = fileManager.loadDealership("inventory.csv");
+        dealership = fileManager.getDealership();
+
+        System.out.println("Loaded Dealership: " +
+                dealership.getName() + " " +
+                dealership.getAddress() + " " +
+                dealership.getPhone());
     }
 
     private void proccessRemoveVehicle() {
