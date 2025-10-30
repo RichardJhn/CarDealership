@@ -21,9 +21,16 @@ public class Dealership {
     }
 
     public void removeVehicle(int vin){
-        inventory.removeIf(v -> v.getVin() == vin);
+        for (Vehicle v : inventory) {
+            if (v.getVin() == vin) {
+                inventory.remove(v);
+                break;
+            }
 
+        }
+        
     }
+
 
     public List<Vehicle> getAllVehicles() {
         return inventory;

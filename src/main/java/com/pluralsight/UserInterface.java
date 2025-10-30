@@ -34,7 +34,6 @@ public class UserInterface{
 
 
             try (BufferedReader reader = new BufferedReader(new FileReader("inventory.csv"))){
-                String line;
 
                 switch(choice.toString()){
                     case "1":
@@ -91,6 +90,10 @@ public class UserInterface{
 
                         break;
                     case "9":
+                        System.out.println("what is the vin number of the vehicle you would like to remove?(5 numbers)");
+                        int removeVin = scanner.nextInt();
+                        dealership.removeVehicle(removeVin);
+                        System.out.println("Vehicle has been removed ");
 
                         break;
                     case "99":
